@@ -1,0 +1,52 @@
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "default",
+            "hidden": true,
+            "generator": "Ninja",
+            "environment": {
+                "COMPILER_DIR": "D:/usr/scoop/apps/mingw/current/bin",
+                "VCPKG_ROOT": "D:/usr/scoop/apps/vcpkg/current"
+            },
+            "cacheVariables": {
+                "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic",
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_C_COMPILER": "$env{COMPILER_DIR}/gcc.exe",
+                "CMAKE_CXX_COMPILER": "$env{COMPILER_DIR}/g++.exe"
+            }
+        },
+        {
+            "name": "chicken_evil (Debug)",
+            "description": "Debug Configuration",
+            "inherits": "default",
+            "binaryDir": "${sourceDir}/build/Debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "chicken_evil (Release)",
+            "description": "Release Configuration",
+            "inherits": "default",
+            "binaryDir": "${sourceDir}/build/Release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug",
+            "description": "Debug build",
+            "displayName": "",
+            "configurePreset": "chicken_evil (Debug)"
+        },
+        {
+            "name": "Release",
+            "description": "Release build",
+            "displayName": "",
+            "configurePreset": "chicken_evil (Release)"
+        }
+    ]
+}

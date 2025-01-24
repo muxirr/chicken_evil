@@ -1,7 +1,7 @@
 #ifndef _ALTAS_H_
 #define _ALTAS_H_
 
-#include "SDL_image.h"
+#include <SDL_image.h>
 
 #include <vector>
 

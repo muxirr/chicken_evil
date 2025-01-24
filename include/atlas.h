@@ -37,12 +37,12 @@ public:
 
   int get_size() { return static_cast<int>(this->tex_list.size()); }
 
-  SDL_Texture *get_image(int index) {
+  SDL_Texture *get_texture(int index) {
     if (index < 0 || index >= tex_list.size())
       return nullptr;
     return this->tex_list[index];
   }
-  void add_image(SDL_Texture *texture) { this->tex_list.push_back(texture); }
+  void add_texture(SDL_Texture *texture) { this->tex_list.push_back(texture); }
 
 private:
   std::vector<SDL_Texture *> tex_list;

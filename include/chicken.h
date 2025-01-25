@@ -31,15 +31,18 @@ public:
 
   void on_update(float delta) {
     if (is_alive) {
-      position.y += speed_run * delta;
+      this->position.y += this->speed_run * delta;
     }
 
-    current_animation = (is_alive ? &animation_run : &animation_explosion);
-    current_animation->set_position(position);
-    current_animation->on_update(delta);
+    this->current_animation =
+        (is_alive ? &animation_run : &animation_explosion);
+    this->current_animation->set_position(position);
+    this->current_animation->on_update(delta);
   }
 
-  void on_render(Camera &camera) { current_animation->on_render(camera); }
+  void on_render(const Camera &camera) const {
+    current_animation->on_render(camera);
+  }
 
   void on_hurt() {
     is_alive = false;
@@ -49,9 +52,9 @@ public:
 
   void make_invalid() { this->is_valid = false; }
 
-  bool check_valid() const { return this->is_valid; }
+  bool check_alive() const { return this->is_alive; }
 
-  bool can_remove() const { return !this->is_alive; }
+  bool can_remove() const { return !this->is_valid; }
 
 protected:
   float speed_run = 10.0f;

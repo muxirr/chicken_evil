@@ -32,11 +32,11 @@ public:
   }
 
   void shake(float strength, float duration) {
-    is_shaking = true;
-    shaking_strength = strength;
+    this->is_shaking = true;
+    this->shaking_strength = strength;
 
-    timer_shake.set_wait_time(duration);
-    timer_shake.restart();
+    this->timer_shake.set_wait_time(duration);
+    this->timer_shake.restart();
   }
 
   void render_texture(SDL_Texture *texture, const SDL_Rect *src_rect,
@@ -52,9 +52,9 @@ public:
 
 private:
   Vector2 position;
-  float shaking_strength;
-  bool is_shaking = false;
   Timer timer_shake;
+  bool is_shaking = false;
+  float shaking_strength = 0;
   SDL_Renderer *renderer = nullptr;
 };
 

@@ -1,7 +1,7 @@
 {
   "name": "chicken-evil",
   "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
-  "builtin-baseline": "6a349fe1fbea1e5fcda2e0775f555d829a5e82df",
+  "builtin-baseline": "fc5118086f5db341ee4ab3a7d4d64c0f39896270",
   "dependencies": [
     {
       "name": "sdl2",

@@ -1,6 +1,7 @@
 #ifndef _ALTAS_H_
 #define _ALTAS_H_
 
+#include <SDL.h>
 #include <SDL_image.h>
 
 #include <vector>
@@ -11,7 +12,10 @@ public:
 
   ~Atlas() {
     for (auto texture : tex_list) {
-      SDL_DestroyTexture(texture);
+      if (texture != nullptr) {
+        SDL_DestroyTexture(texture);
+        texture = nullptr;
+      }
     }
   }
 
@@ -24,16 +28,11 @@ public:
     for (int i = 0; i < num; i++) {
       sprintf_s(path, path_template, i + 1);
       SDL_Texture *texture = IMG_LoadTexture(renderer, path);
-      tex_list.push_back(texture);
+      tex_list[i] = std::move(texture); // resize后不要插入，直接赋值!!!
     }
   }
 
-  void clear() {
-    for (auto texture : tex_list) {
-      SDL_DestroyTexture(texture);
-    }
-    this->tex_list.clear();
-  }
+  void clear() { this->tex_list.clear(); }
 
   int get_size() { return static_cast<int>(this->tex_list.size()); }
 

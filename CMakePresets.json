@@ -12,6 +12,7 @@
             "cacheVariables": {
                 "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic",
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_ASM_COMPILER": "$env{COMPILER_DIR}/cc.exe",
                 "CMAKE_C_COMPILER": "$env{COMPILER_DIR}/gcc.exe",
                 "CMAKE_CXX_COMPILER": "$env{COMPILER_DIR}/g++.exe"
             }

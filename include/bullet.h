@@ -12,8 +12,8 @@ class Bullet {
 public:
   Bullet(double angle) : angle(angle) {
     double radians = angle * M_PI / 180.0;
-    Vector2{static_cast<float>(std::cos(radians) * speed),
-            static_cast<float>(std::sin(radians) * speed)};
+    velocity = Vector2{static_cast<float>(std::cos(radians) * speed),
+                       static_cast<float>(std::sin(radians) * speed)};
   }
 
   ~Bullet() = default;
@@ -24,14 +24,15 @@ public:
 
   void on_update(float delta) {
     this->position += this->velocity * delta;
-    if (this->position.x < 0 || this->position.x >= 1280 ||
-        this->position.y < 0 || this->position.y >= 720) {
+    if (this->position.x <= 0 || this->position.x >= 1280 ||
+        this->position.y <= 0 || this->position.y >= 720) {
       this->is_valid = false;
     }
   }
 
   void on_render(const Camera &camera) const {
-    SDL_FRect dst_rect = {this->position.x - 4, this->position.y - 2, 8, 4};
+    const SDL_FRect dst_rect = {this->position.x - 4, this->position.y - 2, 8,
+                                4};
     camera.render_texture(tex_bullet, nullptr, &dst_rect, angle, nullptr);
   }
 
@@ -43,7 +44,7 @@ private:
   double angle = 0;
   Vector2 position;
   Vector2 velocity;
-  bool is_valid = false;
+  bool is_valid = true;
   float speed = 800.0f;
 };
 

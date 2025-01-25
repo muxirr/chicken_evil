@@ -73,7 +73,7 @@ public:
 
   void on_render(const Camera &camera) const {
     const Frame &frame = frame_list[idx_frame];
-    const Vector2 &position = camera.get_position();
+    // const Vector2 &pos_camera = camera.get_position();
 
     SDL_FRect dst_rect = {position.x - frame.src_rect.w / 2.0f,
                           position.y - frame.src_rect.h / 2.0f,
@@ -101,7 +101,7 @@ private:
   SDL_FPoint center = {0, 0};
 
   Timer timer;
-  bool is_loop = false;
+  bool is_loop = true;
   size_t idx_frame = 0;
   std::vector<Frame> frame_list;
   std::function<void()> on_finished;

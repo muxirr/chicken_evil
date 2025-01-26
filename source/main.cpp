@@ -1,7 +1,7 @@
 // 使用原来的main函数;
 #define SDL_MAIN_HANDLED
 #define RES_PATH "./assets/" // 资源路径头;
-#define DEBUG                // 调试模式无敌;
+// #define DEBUG                // 调试模式无敌;
 #ifdef DEBUG
 #define RES_PATH "../../assets/" // 资源路径头;
 #endif

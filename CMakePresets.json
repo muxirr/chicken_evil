@@ -18,6 +18,40 @@
             }
         },
         {
+            "name": "default-win",
+            "hidden": true,
+            "generator": "Ninja",
+            "environment": {
+                "COMPILER_DIR": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.42.34433/bin/HostX64/x64",
+                "VCPKG_ROOT": "D:/usr/scoop/apps/vcpkg/current"
+            },
+            "cacheVariables": {
+                "VCPKG_TARGET_TRIPLET": "x64-windows",
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_ASM_COMPILER": "$env{COMPILER_DIR}/cl.exe",
+                "CMAKE_C_COMPILER": "$env{COMPILER_DIR}/cl.exe",
+                "CMAKE_CXX_COMPILER": "$env{COMPILER_DIR}/cl.exe"
+            }
+        },
+        {
+            "name": "chicken_evil (Debug-win)",
+            "description": "Debug Configuration",
+            "inherits": "default-win",
+            "binaryDir": "${sourceDir}/build/Debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "chicken_evil (Release-win)",
+            "description": "Release Configuration",
+            "inherits": "default-win",
+            "binaryDir": "${sourceDir}/build/Release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
             "name": "chicken_evil (Debug)",
             "description": "Debug Configuration",
             "inherits": "default",
@@ -48,6 +82,18 @@
             "description": "Release build",
             "displayName": "",
             "configurePreset": "chicken_evil (Release)"
+        },
+        {
+            "name": "Debug-win",
+            "description": "Debug build",
+            "displayName": "",
+            "configurePreset": "chicken_evil (Debug-win)"
+        },
+        {
+            "name": "Release-win",
+            "description": "Release build",
+            "displayName": "",
+            "configurePreset": "chicken_evil (Release-win)"
         }
     ]
 }

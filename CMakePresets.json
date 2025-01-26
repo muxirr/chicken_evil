@@ -37,7 +37,7 @@
             "name": "chicken_evil (Debug-win)",
             "description": "Debug Configuration",
             "inherits": "default-win",
-            "binaryDir": "${sourceDir}/build/Debug",
+            "binaryDir": "${sourceDir}/build/Debug-win",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
@@ -46,7 +46,7 @@
             "name": "chicken_evil (Release-win)",
             "description": "Release Configuration",
             "inherits": "default-win",
-            "binaryDir": "${sourceDir}/build/Release",
+            "binaryDir": "${sourceDir}/build/Release-win",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }

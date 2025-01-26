@@ -1,7 +1,10 @@
 // 使用原来的main函数;
 #define SDL_MAIN_HANDLED
 #define RES_PATH "./assets/" // 资源路径头;
-// #define DEBUG // 调试模式无敌;
+#define DEBUG                // 调试模式无敌;
+#ifdef DEBUG
+#define RES_PATH "../../assets/" // 资源路径头;
+#endif
 
 #include "atlas.h"
 #include "bullet.h"
@@ -103,7 +106,7 @@ void init() {
   Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
   Mix_AllocateChannels(32);
   window =
-      SDL_CreateWindow(u8"《生化危鸡》", SDL_WINDOWPOS_CENTERED,
+      SDL_CreateWindow("生化危鸡", SDL_WINDOWPOS_CENTERED,
                        SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_SHOWN);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
@@ -513,8 +516,8 @@ void check_fail() {
     is_quit = true;
     Mix_HaltMusic();
     Mix_PlayMusic(music_loss, -1);
-    std::string msg = u8"游戏结束，得分：" + std::to_string(score);
-    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, u8"游戏结束",
+    std::string msg = "游戏结束，得分：" + std::to_string(score);
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "游戏结束",
                              msg.c_str(), window);
   }
 }

@@ -22,8 +22,8 @@ CMakePresets.json <br>
 
 ```json
 "environment": {
-"COMPILER_DIR": "path/to/complier",
-"VCPKG_ROOT": "path/to/vcpkg"
+    "COMPILER_DIR": "path/to/complier",
+    "VCPKG_ROOT": "path/to/vcpkg"
 },
 ```
 

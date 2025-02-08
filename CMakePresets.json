@@ -16,7 +16,7 @@
             }
         },
         {
-            "name": "meal_sharing_legend (Debug-win)",
+            "name": "chicken_evil (Debug-win)",
             "description": "Debug Configuration",
             "inherits": "default",
             "binaryDir": "${sourceDir}/build/Debug-win",
@@ -30,7 +30,7 @@
             }
         },
         {
-            "name": "meal_sharing_legend (Release-win)",
+            "name": "chicken_evil (Release-win)",
             "description": "Release Configuration",
             "inherits": "default",
             "binaryDir": "${sourceDir}/build/Release-win",
@@ -44,7 +44,7 @@
             }
         },
         {
-            "name": "meal_sharing_legend (Debug)",
+            "name": "chicken_evil (Debug)",
             "description": "Debug Configuration",
             "inherits": "default",
             "binaryDir": "${sourceDir}/build/Debug",
@@ -53,7 +53,7 @@
             }
         },
         {
-            "name": "meal_sharing_legend (Release)",
+            "name": "chicken_evil (Release)",
             "description": "Release Configuration",
             "inherits": "default",
             "binaryDir": "${sourceDir}/build/Release",
@@ -67,25 +67,25 @@
             "name": "Debug",
             "description": "Debug build",
             "displayName": "",
-            "configurePreset": "meal_sharing_legend (Debug)"
+            "configurePreset": "chicken_evil (Debug)"
         },
         {
             "name": "Release",
             "description": "Release build",
             "displayName": "",
-            "configurePreset": "meal_sharing_legend (Release)"
+            "configurePreset": "chicken_evil (Release)"
         },
         {
             "name": "Debug-win",
             "description": "Debug build",
             "displayName": "",
-            "configurePreset": "meal_sharing_legend (Debug-win)"
+            "configurePreset": "chicken_evil (Debug-win)"
         },
         {
             "name": "Release-win",
             "description": "Release build",
             "displayName": "",
-            "configurePreset": "meal_sharing_legend (Release-win)"
+            "configurePreset": "chicken_evil (Release-win)"
         }
     ]
 }

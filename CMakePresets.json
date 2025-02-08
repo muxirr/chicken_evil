@@ -6,53 +6,45 @@
             "hidden": true,
             "generator": "Ninja",
             "environment": {
-                "COMPILER_DIR": "D:/usr/scoop/apps/mingw/current/bin",
+                "VCPKG_DEFAULT_HOST_TRIPLET": "x64-mingw-dynamic",
+                "VCPKG_DEFAULT_TRIPLET": "x64-mingw-dynamic",
                 "VCPKG_ROOT": "D:/usr/scoop/apps/vcpkg/current"
             },
             "cacheVariables": {
                 "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic",
-                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-                "CMAKE_ASM_COMPILER": "$env{COMPILER_DIR}/cc.exe",
-                "CMAKE_C_COMPILER": "$env{COMPILER_DIR}/gcc.exe",
-                "CMAKE_CXX_COMPILER": "$env{COMPILER_DIR}/g++.exe"
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
             }
         },
         {
-            "name": "default-win",
-            "hidden": true,
-            "generator": "Ninja",
+            "name": "meal_sharing_legend (Debug-win)",
+            "description": "Debug Configuration",
+            "inherits": "default",
+            "binaryDir": "${sourceDir}/build/Debug-win",
             "environment": {
-                "COMPILER_DIR": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.42.34433/bin/HostX64/x64",
-                "VCPKG_ROOT": "D:/usr/scoop/apps/vcpkg/current"
+                "VCPKG_DEFAULT_HOST_TRIPLET": "x64-windows",
+                "VCPKG_DEFAULT_TRIPLET": "x64-windows"
             },
             "cacheVariables": {
                 "VCPKG_TARGET_TRIPLET": "x64-windows",
-                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-                "CMAKE_ASM_COMPILER": "$env{COMPILER_DIR}/cl.exe",
-                "CMAKE_C_COMPILER": "$env{COMPILER_DIR}/cl.exe",
-                "CMAKE_CXX_COMPILER": "$env{COMPILER_DIR}/cl.exe"
-            }
-        },
-        {
-            "name": "chicken_evil (Debug-win)",
-            "description": "Debug Configuration",
-            "inherits": "default-win",
-            "binaryDir": "${sourceDir}/build/Debug-win",
-            "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
-            "name": "chicken_evil (Release-win)",
+            "name": "meal_sharing_legend (Release-win)",
             "description": "Release Configuration",
-            "inherits": "default-win",
+            "inherits": "default",
             "binaryDir": "${sourceDir}/build/Release-win",
+            "environment": {
+                "VCPKG_DEFAULT_HOST_TRIPLET": "x64-windows",
+                "VCPKG_DEFAULT_TRIPLET": "x64-windows"
+            },
             "cacheVariables": {
+                "VCPKG_TARGET_TRIPLET": "x64-windows",
                 "CMAKE_BUILD_TYPE": "Release"
             }
         },
         {
-            "name": "chicken_evil (Debug)",
+            "name": "meal_sharing_legend (Debug)",
             "description": "Debug Configuration",
             "inherits": "default",
             "binaryDir": "${sourceDir}/build/Debug",
@@ -61,7 +53,7 @@
             }
         },
         {
-            "name": "chicken_evil (Release)",
+            "name": "meal_sharing_legend (Release)",
             "description": "Release Configuration",
             "inherits": "default",
             "binaryDir": "${sourceDir}/build/Release",
@@ -75,25 +67,25 @@
             "name": "Debug",
             "description": "Debug build",
             "displayName": "",
-            "configurePreset": "chicken_evil (Debug)"
+            "configurePreset": "meal_sharing_legend (Debug)"
         },
         {
             "name": "Release",
             "description": "Release build",
             "displayName": "",
-            "configurePreset": "chicken_evil (Release)"
+            "configurePreset": "meal_sharing_legend (Release)"
         },
         {
             "name": "Debug-win",
             "description": "Debug build",
             "displayName": "",
-            "configurePreset": "chicken_evil (Debug-win)"
+            "configurePreset": "meal_sharing_legend (Debug-win)"
         },
         {
             "name": "Release-win",
             "description": "Release build",
             "displayName": "",
-            "configurePreset": "chicken_evil (Release-win)"
+            "configurePreset": "meal_sharing_legend (Release-win)"
         }
     ]
 }

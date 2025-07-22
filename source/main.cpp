@@ -1,10 +1,6 @@
 // 使用原来的main函数;
 #define SDL_MAIN_HANDLED
-#define RES_PATH "./assets/" // 资源路径头;
 // #define DEBUG                // 调试模式无敌;
-#ifdef DEBUG
-#define RES_PATH "../../assets/" // 资源路径头;
-#endif
 
 #include "atlas.h"
 #include "bullet.h"
@@ -88,7 +84,13 @@ void on_render(const Camera &camera); // 游戏渲染;
 void main_loop();                     // 主循环;
 void check_fail();                    // 检测游戏失败;
 
-int WinMain(int argc, char **argv) {
+#ifdef _DEBUG
+int main (int argc, char** argv)
+#else
+int WinMain(int argc, char **argv)
+#endif
+
+{
 
   init();
   main_loop();
@@ -166,31 +168,30 @@ void deinit() {
 }
 
 void load_resources() {
-  tex_heart = IMG_LoadTexture(renderer, (RES_PATH "image/heart.png"));
-  tex_bullet = IMG_LoadTexture(renderer, (RES_PATH "image/bullet.png"));
-  tex_battery = IMG_LoadTexture(renderer, (RES_PATH "image/battery.png"));
-  tex_crosshair = IMG_LoadTexture(renderer, (RES_PATH "image/crosshair.png"));
-  tex_background = IMG_LoadTexture(renderer, (RES_PATH "image/background.png"));
-  tex_barrel_idle =
-      IMG_LoadTexture(renderer, (RES_PATH "image/barrel_idle.png"));
+  tex_heart = IMG_LoadTexture(renderer, "./assets/image/heart.png");
+  tex_bullet = IMG_LoadTexture(renderer, "./assets/image/bullet.png");
+  tex_battery = IMG_LoadTexture(renderer, "./assets/image/battery.png");
+  tex_crosshair = IMG_LoadTexture(renderer, "./assets/image/crosshair.png");
+  tex_background = IMG_LoadTexture(renderer, "./assets/image/background.png");
+  tex_barrel_idle = IMG_LoadTexture(renderer, "./assets/image/barrel_idle.png");
 
-  atlas_barrel_fire.load(renderer, (RES_PATH "image/barrel_fire_%d.png"), 3);
-  atlas_chicken_fast.load(renderer, (RES_PATH "image/chicken_fast_%d.png"), 4);
-  atlas_chicken_medium.load(renderer, (RES_PATH "image/chicken_medium_%d.png"),
+  atlas_barrel_fire.load(renderer, "./assets/image/barrel_fire_%d.png", 3);
+  atlas_chicken_fast.load(renderer, "./assets/image/chicken_fast_%d.png", 4);
+  atlas_chicken_medium.load(renderer, "./assets/image/chicken_medium_%d.png",
                             6);
-  atlas_chicken_slow.load(renderer, (RES_PATH "image/chicken_slow_%d.png"), 8);
-  atlas_explosion.load(renderer, (RES_PATH "image/explosion_%d.png"), 5);
+  atlas_chicken_slow.load(renderer, "./assets/image/chicken_slow_%d.png", 8);
+  atlas_explosion.load(renderer, "./assets/image/explosion_%d.png", 5);
 
-  music_bgm = Mix_LoadMUS((RES_PATH "audio/bgm.mp3"));
-  music_loss = Mix_LoadMUS((RES_PATH "audio/loss.mp3"));
+  music_bgm = Mix_LoadMUS("./assets/audio/bgm.mp3");
+  music_loss = Mix_LoadMUS("./assets/audio/loss.mp3");
 
-  sound_hurt = Mix_LoadWAV((RES_PATH "audio/hurt.wav"));
-  sound_fire_1 = Mix_LoadWAV((RES_PATH "audio/fire_1.wav"));
-  sound_fire_2 = Mix_LoadWAV((RES_PATH "audio/fire_2.wav"));
-  sound_fire_3 = Mix_LoadWAV((RES_PATH "audio/fire_3.wav"));
-  sound_explosion = Mix_LoadWAV((RES_PATH "audio/explosion.wav"));
+  sound_hurt = Mix_LoadWAV("./assets/audio/hurt.wav");
+  sound_fire_1 = Mix_LoadWAV("./assets/audio/fire_1.wav");
+  sound_fire_2 = Mix_LoadWAV("./assets/audio/fire_2.wav");
+  sound_fire_3 = Mix_LoadWAV("./assets/audio/fire_3.wav");
+  sound_explosion = Mix_LoadWAV("./assets/audio/explosion.wav");
 
-  font = TTF_OpenFont((RES_PATH "IPix.ttf"), 28);
+  font = TTF_OpenFont("./assets/IPix.ttf", 28);
 }
 
 void unload_resources() {

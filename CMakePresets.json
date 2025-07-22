@@ -1,91 +1,91 @@
 {
-    "version": 2,
-    "configurePresets": [
-        {
-            "name": "default",
-            "hidden": true,
-            "generator": "Ninja",
-            "environment": {
-                "VCPKG_DEFAULT_HOST_TRIPLET": "x64-mingw-dynamic",
-                "VCPKG_DEFAULT_TRIPLET": "x64-mingw-dynamic",
-                "VCPKG_ROOT": "D:/usr/scoop/apps/vcpkg/current"
-            },
-            "cacheVariables": {
-                "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic",
-                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-            }
-        },
-        {
-            "name": "chicken_evil (Debug-win)",
-            "description": "Debug Configuration",
-            "inherits": "default",
-            "binaryDir": "${sourceDir}/build/Debug-win",
-            "environment": {
-                "VCPKG_DEFAULT_HOST_TRIPLET": "x64-windows",
-                "VCPKG_DEFAULT_TRIPLET": "x64-windows"
-            },
-            "cacheVariables": {
-                "VCPKG_TARGET_TRIPLET": "x64-windows",
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
-        },
-        {
-            "name": "chicken_evil (Release-win)",
-            "description": "Release Configuration",
-            "inherits": "default",
-            "binaryDir": "${sourceDir}/build/Release-win",
-            "environment": {
-                "VCPKG_DEFAULT_HOST_TRIPLET": "x64-windows",
-                "VCPKG_DEFAULT_TRIPLET": "x64-windows"
-            },
-            "cacheVariables": {
-                "VCPKG_TARGET_TRIPLET": "x64-windows",
-                "CMAKE_BUILD_TYPE": "Release"
-            }
-        },
-        {
-            "name": "chicken_evil (Debug)",
-            "description": "Debug Configuration",
-            "inherits": "default",
-            "binaryDir": "${sourceDir}/build/Debug",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
-        },
-        {
-            "name": "chicken_evil (Release)",
-            "description": "Release Configuration",
-            "inherits": "default",
-            "binaryDir": "${sourceDir}/build/Release",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
-        }
-    ],
-    "buildPresets": [
-        {
-            "name": "Debug",
-            "description": "Debug build",
-            "displayName": "",
-            "configurePreset": "chicken_evil (Debug)"
-        },
-        {
-            "name": "Release",
-            "description": "Release build",
-            "displayName": "",
-            "configurePreset": "chicken_evil (Release)"
-        },
-        {
-            "name": "Debug-win",
-            "description": "Debug build",
-            "displayName": "",
-            "configurePreset": "chicken_evil (Debug-win)"
-        },
-        {
-            "name": "Release-win",
-            "description": "Release build",
-            "displayName": "",
-            "configurePreset": "chicken_evil (Release-win)"
-        }
-    ]
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "default",
+      "hidden": true,
+      "generator": "Ninja",
+      "environment": {
+        "VCPKG_DEFAULT_HOST_TRIPLET": "x64-mingw-dynamic",
+        "VCPKG_DEFAULT_TRIPLET": "x64-mingw-dynamic",
+        "VCPKG_ROOT": "D:/usr/scoop/apps/vcpkg/current"
+      },
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+      }
+    },
+    {
+      "name": "chicken_evil_debug_msvc",
+      "description": "Debug Configuration",
+      "inherits": "default",
+      "binaryDir": "${sourceDir}/build/debug_msvc",
+      "environment": {
+        "VCPKG_DEFAULT_HOST_TRIPLET": "x64-windows",
+        "VCPKG_DEFAULT_TRIPLET": "x64-windows"
+      },
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "chicken_evil_release_msvc",
+      "description": "Release Configuration",
+      "inherits": "default",
+      "binaryDir": "${sourceDir}/build/release_msvc",
+      "environment": {
+        "VCPKG_DEFAULT_HOST_TRIPLET": "x64-windows",
+        "VCPKG_DEFAULT_TRIPLET": "x64-windows"
+      },
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "chicken_evil_debug_gnu",
+      "description": "Debug Configuration",
+      "inherits": "default",
+      "binaryDir": "${sourceDir}/build/debug_gnu",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "chicken_evil_release_gnu",
+      "description": "Release Configuration",
+      "inherits": "default",
+      "binaryDir": "${sourceDir}/build/release_gnu",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug_gnu",
+      "description": "Debug build",
+      "displayName": "",
+      "configurePreset": "chicken_evil_debug_gnu"
+    },
+    {
+      "name": "release_gnu",
+      "description": "Release build",
+      "displayName": "",
+      "configurePreset": "chicken_evil_release_gnu"
+    },
+    {
+      "name": "debug_msvc",
+      "description": "Debug build",
+      "displayName": "",
+      "configurePreset": "chicken_evil_debug_msvc"
+    },
+    {
+      "name": "release_msvc",
+      "description": "Release build",
+      "displayName": "",
+      "configurePreset": "chicken_evil_release_msvc"
+    }
+  ]
 }

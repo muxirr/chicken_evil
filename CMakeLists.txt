@@ -9,13 +9,26 @@ find_package(SDL2_ttf CONFIG REQUIRED)
 
 include_directories(include)
 
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS source/*.cpp)
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+  source/*.cpp
+  source/*.c)
 
-add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
+if(MSVC OR MINGW)
+  list(APPEND SOURCES source/resource.rc)
+endif()
 
-target_link_libraries(${PROJECT_NAME}
-        PRIVATE
-        SDL2::SDL2
-        SDL2_image::SDL2_image
-        SDL2_mixer::SDL2_mixer
-        SDL2_ttf::SDL2_ttf)
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+  SDL2::SDL2
+  SDL2_image::SDL2_image
+  SDL2_mixer::SDL2_mixer
+  SDL2_ttf::SDL2_ttf)
+
+if(MSVC AND (NOT CMAKE_BUILD_TYPE STREQUAL "Debug"))
+  target_link_options(${PROJECT_NAME} PRIVATE /SUBSYSTEM:WINDOWS)
+elseif(MINGW AND (NOT CMAKE_BUILD_TYPE STREQUAL "Debug"))
+  target_link_options(${PROJECT_NAME} PRIVATE -mwindows)
+endif()
+
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})

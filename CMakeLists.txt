@@ -21,9 +21,9 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
   SDL2::SDL2
-  SDL2_image::SDL2_image
-  SDL2_mixer::SDL2_mixer
-  SDL2_ttf::SDL2_ttf)
+  $<IF:$<TARGET_EXISTS:SDL2_image::SDL2_image>,SDL2_image::SDL2_image,SDL2_image::SDL2_image-static>
+  $<IF:$<TARGET_EXISTS:SDL2_mixer::SDL2_mixer>,SDL2_mixer::SDL2_mixer,SDL2_mixer::SDL2_mixer-static>
+  $<IF:$<TARGET_EXISTS:SDL2_ttf::SDL2_ttf>,SDL2_ttf::SDL2_ttf,SDL2_ttf::SDL2_ttf-static>)
 
 if(MSVC AND (NOT CMAKE_BUILD_TYPE STREQUAL "Debug"))
   target_link_options(${PROJECT_NAME} PRIVATE /SUBSYSTEM:WINDOWS)

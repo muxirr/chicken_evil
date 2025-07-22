@@ -1,5 +1,10 @@
-icon2 ICON "../assets/icon/2.ico"
-icon3 ICON "../assets/icon/3.ico"
-icon4 ICON "../assets/icon/4.ico"
-icon5 ICON "../assets/icon/5.ico"
-icon6 ICON "../assets/icon/6.ico"
+ICON2                   ICON                    "../assets/icon/2.ico"
+
+ICON3                   ICON                    "../assets/icon/3.ico"
+
+ICON4                   ICON                    "../assets/icon/4.ico"
+
+ICON5                   ICON                    "../assets/icon/5.ico"
+
+ICON6                   ICON                    "../assets/icon/6.ico"
+
